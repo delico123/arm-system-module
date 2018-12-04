@@ -1,5 +1,6 @@
 //decimal, ()? w/o explicit comparison
 
+
 module armreduced(
 	input clk,
 	input reset,
@@ -31,14 +32,16 @@ module armreduced(
 	wire ALUFlags;	//ALU output wire (2/2)
 	
 	wire [31:0] Result;
+	
 	initial 
 	begin
-      PC = 0;
+      PC = 32'b0;
 	end
    
 	//Instruction Decode. to control, reg..
 	ControlUnit controlunit(
-		//clk, reset?
+		.clk(clk),
+		.reset(reset),
 		.Cond(inst[31:28]),	//input
 		.Op(inst[27:26]),
 		.Funct(inst[25:20]),
@@ -99,12 +102,13 @@ module armreduced(
 	assign PC_prime = (PCSrc)? Result:PCPlus4;
 	
 	//PC. reg, clk
-	always @(posedge clk or posedge reset)
+	always @(posedge clk or negedge reset)
 	begin
-		if(reset)
+		if(!reset)
 			PC = 32'b0;
 		else
 			PC = PC_prime;
 	end
 	
+	assign pc = PC;
 endmodule
