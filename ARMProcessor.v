@@ -22,7 +22,6 @@ module armreduced(
    wire [2:0] ALUControl;
    wire [1:0] ImmSrc, RegSrc;   //Control Unit output wire (2/2)
    wire [4:0] RA1, RA2;   //Reg input wire
-   wire [31:0] PCPlus4, PCPlus8;   //Reg input wire
    wire [31:0] ExtImm;   //Extend output wire
    wire [31:0] RD1, RD2;   //Register File output wire
    wire [31:0] SrcB; //ALU input wire
@@ -97,22 +96,14 @@ module armreduced(
    //PC'
    assign PC_prime = (PCSrc)? Result:PC+4;
    
-
    assign pc = PC;
-         always @(posedge clk or posedge reset)
+   
+
+   always @(posedge clk or posedge reset)
    begin
       if(reset==1)
          PC <= 32'b0;
       else
          PC <= PC_prime;
    end
-endmodule
-
-
-module Adder(
-   input [31:0] v1,v2,
-   output [31:0] y
-   );
-
-   assign y=v1+v2;
 endmodule

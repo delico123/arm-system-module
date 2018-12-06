@@ -554,7 +554,7 @@ begin
 					ALUControl[1:0] = 2'b00;
 					ALUSrc = 1'b0;
 					ImmSrc = 2'b01;
-					RegWrite = 2'b00;
+					RegWrite = 2'b11;
 					RegSrc = 2'b00;
 				end
 				4'b0000://LDREQ
@@ -567,7 +567,7 @@ begin
 						ALUControl[1:0] = 2'b00;
 						ALUSrc = 1'b0;
 						ImmSrc = 2'b01;
-						RegWrite = 2'b00;
+						RegWrite = 2'b11;
 						RegSrc = 2'b00;
 					end
 					else
@@ -586,7 +586,7 @@ begin
 						ALUControl[1:0] = 2'b00;
 						ALUSrc = 1'b0;
 						ImmSrc = 2'b01;
-						RegWrite = 2'b00;
+						RegWrite = 2'b11;
 						RegSrc = 2'b00;
 					end
 					else
@@ -608,7 +608,7 @@ begin
 					ALUControl[1:0] = 2'b00;
 					ALUSrc = 1'b1;
 					ImmSrc = 2'b01;
-					RegWrite = 2'b00;
+					RegWrite = 2'b11;
 					RegSrc = 2'b00;
 				end
 				4'b0000://LDRiEQ
@@ -621,7 +621,7 @@ begin
 						ALUControl[1:0] = 2'b00;
 						ALUSrc = 1'b1;
 						ImmSrc = 2'b01;
-						RegWrite = 2'b00;
+						RegWrite = 2'b11;
 						RegSrc = 2'b00;
 					end
 					else
@@ -640,7 +640,7 @@ begin
 						ALUControl[1:0] = 2'b00;
 						ALUSrc = 1'b1;
 						ImmSrc = 2'b01;
-						RegWrite = 2'b00;
+						RegWrite = 2'b11;
 						RegSrc = 2'b00;
 					end
 					else

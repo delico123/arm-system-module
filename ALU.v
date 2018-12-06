@@ -9,7 +9,7 @@ module ALU(
 	output reg ALUFlags
 	);
 
-	always @(*)
+	always @(negedge clk)
 	begin
 		case(ALUControl[1:0]) 
 		2'b00: begin
